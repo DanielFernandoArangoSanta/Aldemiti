@@ -21,6 +21,7 @@ return new class extends Migration
             $table->float('valor_venta');
             $table->integer('cantidad');
             $table->unsignedBigInteger('fk_proveedor')->nullable()->index('fk_proveedor_producto');
+            $table->unsignedBigInteger('fk_categoria')->nullable()->index('fk_categoria_producto');
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('productos', function (Blueprint $table) {
             $table->foreign(['fk_proveedor'], 'fk_proveedor_producto')->references(['id'])->on('proveedores');
+            $table->foreign(['fk_categoria'], 'fk_categoria_producto')->references(['id'])->on('categorias');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('productos', function (Blueprint $table) {
             $table->dropForeign('fk_proveedor_producto');
+            $table->dropForeign('fk_categoria_producto');
         });
     }
 };

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::get('/inventario/index', [ProductoController::class, 'index'])->name('inventario.index');
+Route::get('/inventario/crearproducto', [ProductoController::class, 'create'])->name('inventario.create');
