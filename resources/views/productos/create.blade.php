@@ -25,9 +25,10 @@
           <h3 class="card-title">Formulario de Producto</h3>
         </div>
         <div class="card-body">
-          <form action="" method="post">
-            <div class="row">
-              <div class="form-group col-md-6">
+          <form action="{{ route('inventario.store') }}" method="post">
+            @csrf
+            <div class="row align-items-center justify-content-start">
+              <div class="form-group col-md-8">
                 <label for="categoriaProducto">¿A que categoría pertenece el producto?</label>
                 <select class="form-control" name="categoriaProducto">
                   <option disabled selected>Seleccione una categoría</option>
@@ -37,7 +38,8 @@
                 </select>
               </div>
             </div>
-            <div class="row">
+            <livewire:categoria.crear-categoria />
+            <div class="row mt-2">
               <div class="form-group col-md-6">
                 <label for="codigoProducto">Código</label>
                 <input type="text" class="form-control" name="codigoProducto">
@@ -84,6 +86,12 @@
                   <option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
                 @endforeach
                 </select>
+                <br>
+                <a href="{{ route('proveedor.create') }}">
+                  <button type="button" class="btn btn-block btn-sm bg-navy">
+                    Crear Proveedor
+                  </button>
+                </a>
               </div>
             </div>
             <div class="row justify-content-center">

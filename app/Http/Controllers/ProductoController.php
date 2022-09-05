@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\Producto;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductoController extends Controller
 {
@@ -42,7 +43,16 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = new Producto();
+        $producto->codigo = $request->codigoProducto;
+        $producto->nombre = $request->nombreProducto;
+        $producto->valor_compra = $request->valorCompra;
+        $producto->valor_venta = $request->valorVenta;
+        $producto->cantidad = $request->stockInventario;
+        $producto->fk_proveedor = $request->proveedorProducto;
+        $producto->fk_categoria = $request->categoriaProducto;
+        $producto->save();
+        return Redirect::route('inventario.index');
     }
 
     /**
@@ -64,7 +74,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        return view('productos.edit', compact('producto'));
     }
 
     /**
@@ -87,6 +97,7 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+        return Redirect::route('inventario.index');
     }
 }

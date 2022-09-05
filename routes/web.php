@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ProveedorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,14 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
+//Productos
 Route::get('/inventario/index', [ProductoController::class, 'index'])->name('inventario.index');
 Route::get('/inventario/crearproducto', [ProductoController::class, 'create'])->name('inventario.create');
+Route::post('/inventario/guardar', [ProductoController::class, 'store'])->name('inventario.store');
+Route::get('/inventario/{producto}/editar', [ProductoController::class, 'edit'])->name('inventario.edit');
+Route::delete('/inventario/{producto}/eliminar', [ProductoController::class, 'destroy'])->name('inventario.delete');
+
+//Proveedores
+Route::get('/proveedores/index', [ProveedorController::class, 'index'])->name('proveedor.index');
+Route::get('/proveedores/crearproveedor', [ProveedorController::class, 'create'])->name('proveedor.create');
+Route::post('/proveedor/guardar', [ProveedorController::class, 'store'])->name('proveedor.store');

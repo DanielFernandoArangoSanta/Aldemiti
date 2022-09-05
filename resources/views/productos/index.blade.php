@@ -35,18 +35,39 @@
                 <th>Valor de Venta</th>
                 <th>Cantidad en inventario</th>
                 <th>Proveedor</th>
+                <th>Opciones</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($productos as $producto)
               <td>{{ $producto->id }}</td>
-              <td>{{ $producto->categoria()->nombre }}</td>
+              <td>{{ $producto->categoria->nombre }}</td>
               <td>{{ $producto->codigo }}</td>
               <td>{{ $producto->nombre }}</td>
               <td>{{ $producto->valor_compra }}</td>
               <td>{{ $producto->valor_venta }}</td>
               <td>{{ $producto->cantidad }}</td>
-              <td>{{ $producto->proveedor()->nombre }}</td>
+              <td>{{ $producto->proveedor->nombre }}</td>
+              <td>
+                <div class="row">
+                  <div class="col">
+                    <a href="{{ route('inventario.edit', $producto) }}">
+                      <button type="button" class="btn btn-sm bg-navy">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                    </a>
+                  </div>
+                  <div class="col">
+                    <form action="{{ route('inventario.delete', $producto) }}" method="post">
+                      @method("DELETE")
+                      @csrf
+                      <button type="submit" class="btn btn-sm bg-navy">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </td>
               @endforeach
             </tbody>
           </table>

@@ -69,6 +69,14 @@
                 <li><a href="{{ route('inventario.create') }}" class="dropdown-item">Añadir Productos</a></li>
               </ul>
             </li>
+            <li class="nav-item dropdown">
+              <a id="dropdownSubMenu2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Proveedores</a>
+              <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                <li><a href="{{ route('proveedor.index') }}" class="dropdown-item">Ver Proveedores</a></li>
+                <li class="dropdown-divider"></li>
+                <li><a href="{{ route('proveedor.create') }}" class="dropdown-item">Añadir Proveedor</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
 

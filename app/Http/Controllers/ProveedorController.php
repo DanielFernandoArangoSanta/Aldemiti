@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProveedorController extends Controller
 {
@@ -14,7 +15,9 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        return view('proveedor.index', [
+            'proveedores' => Proveedor::all()
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('proveedor.create');
     }
 
     /**
@@ -35,7 +38,11 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $proveedor = new Proveedor();
+        $proveedor->nombre = $request->nombreProveedor;
+        $proveedor->tel_contacto = $request->telefonoProveedor;
+        $proveedor->save();
+        return Redirect::route('proveedor.index');
     }
 
     /**
