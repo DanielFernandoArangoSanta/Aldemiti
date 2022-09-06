@@ -46,6 +46,7 @@ class ProductoController extends Controller
         $producto = new Producto();
         $producto->codigo = $request->codigoProducto;
         $producto->nombre = $request->nombreProducto;
+        $producto->unidad_medida = $request->unidadMedida;
         $producto->valor_compra = $request->valorCompra;
         $producto->valor_venta = $request->valorVenta;
         $producto->cantidad = $request->stockInventario;

@@ -15,6 +15,7 @@ class EditarProducto extends Component
     public $categoria;
     public $codigo;
     public $nombre;
+    public $unidadmedida;
     public $valorcompra;
     public $valorventa;
     public $stock;
@@ -26,6 +27,7 @@ class EditarProducto extends Component
         $this->categoria = $producto->fk_categoria;
         $this->codigo = $producto->codigo;
         $this->nombre = $producto->nombre;
+        $this->unidadmedida = $producto->unidad_medida;
         $this->valorcompra = $producto->valor_compra;
         $this->valorventa = $producto->valor_venta;
         $this->stock = $producto->cantidad;
@@ -37,6 +39,7 @@ class EditarProducto extends Component
         $producto = Producto::find($this->idproducto);
         $producto->codigo = $this->codigo;
         $producto->nombre = $this->nombre;
+        $producto->unidad_medida = $this->unidadmedida;
         $producto->valor_compra = $this->valorcompra;
         $producto->valor_venta = $this->valorventa;
         $producto->cantidad = $this->stock;

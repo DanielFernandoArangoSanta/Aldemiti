@@ -31,6 +31,7 @@
                 <th>Categoría</th>
                 <th>Código</th>
                 <th>Nombre</th>
+                <th>Medida</th>
                 <th>Valor de Compra</th>
                 <th>Valor de Venta</th>
                 <th>Cantidad en inventario</th>
@@ -44,6 +45,7 @@
               <td>{{ $producto->categoria->nombre }}</td>
               <td>{{ $producto->codigo }}</td>
               <td>{{ $producto->nombre }}</td>
+              <td>{{ $producto->unidad_medida }}</td>
               <td>{{ $producto->valor_compra }}</td>
               <td>{{ $producto->valor_venta }}</td>
               <td>{{ $producto->cantidad }}</td>

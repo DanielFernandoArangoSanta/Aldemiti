@@ -17,9 +17,19 @@
                 <label for="codigoProducto">Código</label>
                 <input type="text" class="form-control" name="codigoProducto" wire:model='codigo'>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="nombreProducto">Nombre del producto</label>
                 <input type="text" class="form-control" name="nombreProducto" wire:model='nombre'>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="unidadMedida">Unidad de Medida</label>
+              <select class="form-control" name="unidadMedida" wire:model='unidadmedida'>
+                <option disabled>Seleccione la unidad de medida</option>
+                <option value="Unidad">Unidad</option>
+                <option value="Libra">Libra</option>
+                <option value="Kilo">Kilo</option>
+                <option value="Arroba">Arroba</option>
+              </select>
             </div>
         </div>
         <div class="row">
