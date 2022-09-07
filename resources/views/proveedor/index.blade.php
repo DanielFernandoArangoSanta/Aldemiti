@@ -40,11 +40,15 @@
                 <td>{{ $proveedor->nombre }}</td>
                 <td>{{ $proveedor->tel_contacto }}</td>
                 <td>
-                  <a href="">
-                    <button type="button" class="btn btn-sm bg-navy">
-                      <i class="fas fa-edit"></i>
-                    </button>
-                  </a>
+                  <div class="row">
+                    <div class="col">
+                      <a href="{{ route('proveedor.edit', $proveedor) }}">
+                        <button type="button" class="btn btn-sm bg-navy">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
                 </td>
               </tr>
               @endforeach

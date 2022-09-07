@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
+use App\Models\Proveedor;
 use Illuminate\Support\Facades\Route;
+use Laravel\Jetstream\Rules\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +42,5 @@ Route::delete('/inventario/{producto}/eliminar', [ProductoController::class, 'de
 Route::get('/proveedores/index', [ProveedorController::class, 'index'])->name('proveedor.index');
 Route::get('/proveedores/crearproveedor', [ProveedorController::class, 'create'])->name('proveedor.create');
 Route::post('/proveedor/guardar', [ProveedorController::class, 'store'])->name('proveedor.store');
+Route::get('/proveedor/{proveedor}/editar', [ProveedorController::class, 'edit'])->name('proveedor.edit');
+Route::delete('/proveedor/{proveedor}/eliminar', [ProveedorController::class, 'destroy'])->name('proveedor.delete');

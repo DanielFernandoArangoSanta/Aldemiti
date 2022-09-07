@@ -64,7 +64,7 @@ class ProveedorController extends Controller
      */
     public function edit(Proveedor $proveedor)
     {
-        //
+        return view('proveedor.edit', compact('proveedor'));
     }
 
     /**
@@ -87,6 +87,6 @@ class ProveedorController extends Controller
      */
     public function destroy(Proveedor $proveedor)
     {
-        //
+        
     }
 }
