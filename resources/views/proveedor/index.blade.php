@@ -48,6 +48,15 @@
                         </button>
                       </a>
                     </div>
+                    <div class="col">
+                      <form action="{{ route('proveedor.delete', $proveedor) }}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-sm bg-navy">
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </td>
               </tr>

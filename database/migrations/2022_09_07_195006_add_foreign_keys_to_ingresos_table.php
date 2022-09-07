@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ingresos', function (Blueprint $table) {
-            $table->id();
-            $table->date('fecha_ingreso');
-            $table->unsignedBigInteger('fk_producto')->nullable()->index('fk_ingreso_proveedor');
-            $table->integer('cantidad');
-            $table->float('valor_total');
-            $table->timestamps();
+        Schema::table('ingresos', function (Blueprint $table) {
+            $table->foreign(['fk_producto'], 'fk_ingreso_producto')->references('id')->on('productos')->cascadeOnUpdate()->nullOnDelete();
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingresos');
+        Schema::table('ingresos', function (Blueprint $table) {
+            //
+        });
     }
 };

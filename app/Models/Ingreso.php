@@ -11,8 +11,8 @@ class Ingreso extends Model
 
     protected $table = "ingresos";
     
-    public function productos()
+    public function producto()
     {
-        return $this->belongsToMany(Producto::class, 'ingresos_productos')->withPivot('cantidad');
+        return $this->hasOne(Producto::class, 'fk_producto');
     }
 }

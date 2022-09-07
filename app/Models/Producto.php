@@ -21,10 +21,10 @@ class Producto extends Model
         return $this->belongsTo(Categoria::class, 'fk_categoria');
     }
 
-    public function ingresos()
+    public function ingreso()
     {
-        return $this->belongsToMany(Ingreso::class, 'ingresos_productos')->withPivot('cantidad');
-    }
+        return $this->belongsTo(Ingreso::class, 'fk_producto');
+    }    
 
     public function ventas()
     {
