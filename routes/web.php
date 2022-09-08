@@ -48,3 +48,4 @@ Route::delete('/proveedor/{proveedor}/eliminar', [ProveedorController::class, 'd
 
 //Ingresos
 Route::get('/ingresos/index', [IngresoController::class, 'index'])->name('ingresos.index');
+Route::get('/ingresos/{ingreso}/editar', [IngresoController::class, 'edit'])->name('ingresos.edit');

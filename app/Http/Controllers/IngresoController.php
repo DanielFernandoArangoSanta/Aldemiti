@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ingreso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class IngresoController extends Controller
 {
@@ -59,7 +60,7 @@ class IngresoController extends Controller
      */
     public function edit(Ingreso $ingreso)
     {
-        //
+        return view('ingresos.edit', compact('ingreso'));
     }
 
     /**
@@ -82,6 +83,6 @@ class IngresoController extends Controller
      */
     public function destroy(Ingreso $ingreso)
     {
-        //
+        
     }
 }
