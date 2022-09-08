@@ -14,7 +14,9 @@ class IngresoController extends Controller
      */
     public function index()
     {
-        //
+        return view('ingresos.index', [
+          'ingresos' => Ingreso::all()
+        ]);
     }
 
     /**

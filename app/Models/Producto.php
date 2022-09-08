@@ -23,7 +23,7 @@ class Producto extends Model
 
     public function ingreso()
     {
-        return $this->belongsTo(Ingreso::class, 'fk_producto');
+        return $this->hasMany(Ingreso::class, 'fk_producto');
     }    
 
     public function ventas()

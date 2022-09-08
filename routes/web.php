@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 use App\Models\Proveedor;
@@ -44,3 +45,6 @@ Route::get('/proveedores/crearproveedor', [ProveedorController::class, 'create']
 Route::post('/proveedor/guardar', [ProveedorController::class, 'store'])->name('proveedor.store');
 Route::get('/proveedor/{proveedor}/editar', [ProveedorController::class, 'edit'])->name('proveedor.edit');
 Route::delete('/proveedor/{proveedor}/eliminar', [ProveedorController::class, 'destroy'])->name('proveedor.delete');
+
+//Ingresos
+Route::get('/ingresos/index', [IngresoController::class, 'index'])->name('ingresos.index');

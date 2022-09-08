@@ -15,6 +15,7 @@ class InventarioProductos extends Component
     public $productoSeleccionado;
     public $fechaIngreso;
     public $cantidad;
+    public $valortotal;
 
     public function mount($productos)
     {
@@ -32,13 +33,18 @@ class InventarioProductos extends Component
         $this->formularioIngreso = false;
     }
 
+    public function calcularValorTotal()
+    {
+      $this->valortotal = $this->productoSeleccionado->valor_compra * $this->cantidad;
+    }
+    
     public function guardarIngreso()
     {
         $ingreso = new Ingreso();
         $ingreso->fecha_ingreso = $this->fechaIngreso;
         $ingreso->fk_producto = $this->productoSeleccionado->id;
         $ingreso->cantidad = $this->cantidad;
-        $ingreso->valor_total = $this->productoSeleccionado->valor_compra * $this->cantidad;
+        $ingreso->valor_total = $this->valortotal;
         $ingreso->save();
         $producto = $this->productoSeleccionado;
         $producto->cantidad = $producto->cantidad + $this->cantidad;

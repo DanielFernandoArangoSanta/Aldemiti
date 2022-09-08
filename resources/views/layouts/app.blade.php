@@ -77,6 +77,12 @@
                 <li><a href="{{ route('proveedor.create') }}" class="dropdown-item">Añadir Proveedor</a></li>
               </ul>
             </li>
+            <li class="nav-item dropdown">
+              <a id="dropdownSubMenu3" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Movimientos</a>
+              <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
+                <li><a href="{{ route('ingresos.index') }}" class="dropdown-item">Ver Ingresos</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
 

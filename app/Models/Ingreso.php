@@ -13,6 +13,6 @@ class Ingreso extends Model
     
     public function producto()
     {
-        return $this->hasOne(Producto::class, 'fk_producto');
+        return $this->belongsTo(Producto::class, 'fk_producto');
     }
 }
