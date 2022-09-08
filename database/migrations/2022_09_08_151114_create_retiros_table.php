@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ingresos', function (Blueprint $table) {
+        Schema::create('retiros', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha_ingreso');
-            $table->unsignedBigInteger('fk_producto')->nullable()->index('fk_ingreso_producto');
+            $table->date('fecha_retiro');
+            $table->unsignedBigInteger('fk_producto')->nullable()->index('fk_retiro_producto');
             $table->integer('cantidad');
             $table->float('valor_total');
+            $table->text('observacion')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingresos');
+        Schema::dropIfExists('retiros');
     }
 };

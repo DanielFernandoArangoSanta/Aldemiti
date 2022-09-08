@@ -26,6 +26,11 @@ class Producto extends Model
         return $this->hasMany(Ingreso::class, 'fk_producto');
     }    
 
+    public function retiro()
+    {
+        return $this->hasMany(Retiro::class, 'fk_producto');
+    }
+
     public function ventas()
     {
         return $this->belongsToMany(Venta::class, 'productos_ventas')->withPivot('cantidad', 'valor_total');

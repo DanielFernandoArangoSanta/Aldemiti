@@ -3,6 +3,7 @@
 use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\RetiroController;
 use App\Models\Proveedor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Rules\Role;
@@ -48,4 +49,6 @@ Route::delete('/proveedor/{proveedor}/eliminar', [ProveedorController::class, 'd
 
 //Ingresos
 Route::get('/ingresos/index', [IngresoController::class, 'index'])->name('ingresos.index');
-Route::get('/ingresos/{ingreso}/editar', [IngresoController::class, 'edit'])->name('ingresos.edit');
+
+//Retiros
+Route::get('/retiros/index', [RetiroController::class, 'index'])->name('retiros.index');
