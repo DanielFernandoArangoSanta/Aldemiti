@@ -29,11 +29,39 @@ class CrearVenta extends Component
 
     public function añadirProducto()
     {
-        $this->productosavender = collect([
-            'fk_producto' => $this->idproducto,
-            'cantidad' => $this->cantidad,
-            'valortotal' => $this->valortotal
-        ]);
+        
+        if (empty($this->productosavender)) {
+            $this->productosavender = collect([['id' => $this->idproducto,
+                'nombre' => $this->nombreproducto,
+                'valorventa' => $this->valorproducto,
+                'cantidad' => $this->cantidad,
+                'valortotal' => $this->valortotal
+            ]]);
+        } else {
+            $this->productosavender->push([
+                'id' => $this->id,
+                'nombre' => $this->nombreproducto,
+                'valorventa' => $this->valorproducto,
+                'cantidad' => $this->cantidad,
+                'valortotal' => $this->valortotal
+            ]);
+        }
+        $this->productosavender->all();
+        
+    }
+
+    public function guardarProductos()
+    {
+        $productos = Producto::all();
+        $productosVenta = Producto::class;
+        foreach ($productos as $producto) {
+            $productoVender = $producto;
+            foreach ($this->productosavender as $productoventa) {
+                if ($productoVender->id == $this->productoventa->id) {
+                    //Metodo para almacenar los datos
+                }
+            }
+        }
     }
 
     public function calcularValorTotal()

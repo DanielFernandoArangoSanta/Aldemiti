@@ -25,35 +25,65 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($productos as $producto)
-                                    <tr>
-                                        <td>{{ $producto->id }}</td>
-                                        <td>{{ $producto->nombre }}</td>
-                                        <td>{{ $producto->valor_venta }}</td>
-                                        <td>
-                                            <button type="button" class="btn bg-navy btn-sm" wire:click='seleccionarProducto({{ $producto->id }})'>
-                                                <i class="fas fa-plus"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ $producto->id }}</td>
+                                            <td>{{ $producto->nombre }}</td>
+                                            <td>{{ $producto->valor_venta }}</td>
+                                            <td>
+                                                <button type="button" class="btn bg-navy btn-sm"
+                                                    wire:click='seleccionarProducto({{ $producto->id }})'>
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    @if ($mostrar)
-                    <div class="col-md-2">
-                        <label for="producto">Producto a Añadir</label>
-                        <input readonly type="text" class="form-control" value="{{ $nombreproducto }}">
+                    <div class="col-md-6">
+                        @if ($mostrar)
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="producto">Producto a Añadir</label>
+                                    <input readonly type="text" class="form-control" value="{{ $nombreproducto }}">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="cantidad">Cantidad</label>
+                                    <input type="number" class="form-control" wire:model='cantidad'
+                                        wire:change='calcularValorTotal'>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="valortotal">Valor Total</label>
+                                    <input readonly type="number" class="form-control" value="{{ $valortotal }}">
+                                </div>
+                                <div class="col-md-3 mt-4 p-2">
+                                    <button type="button" class="btn btn-sm bg-navy" wire:click='añadirProducto'>
+                                        Añadir
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <div class="card card-primary">
+                                        <div class="card-header">
+
+                                        </div>
+                                        <div class="card-body">
+                                            @if (!empty($productosavender))
+                                                <ul class="list-group">
+                                                    @foreach ($productosavender as $producto)
+                                                        <li class="list-group-item">{{ $producto['nombre'] }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     </div>
-                    <div class="col-md-1">
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" class="form-control" wire:model='cantidad' wire:change='calcularValorTotal'>
-                    </div>
-                    <div class="col-md-2">
-                        <label for="valortotal">Valor Total</label>
-                        <input readonly type="number" class="form-control" value="{{ $valortotal }}">
-                    </div>
-                    @endif
                 </div>
             </form>
         </div>
