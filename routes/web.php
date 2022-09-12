@@ -4,6 +4,7 @@ use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RetiroController;
+use App\Http\Controllers\VentaController;
 use App\Models\Proveedor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Rules\Role;
@@ -52,3 +53,7 @@ Route::get('/ingresos/index', [IngresoController::class, 'index'])->name('ingres
 
 //Retiros
 Route::get('/retiros/index', [RetiroController::class, 'index'])->name('retiros.index');
+
+//Ventas
+Route::get('/ventas/index', [VentaController::class, 'index'])->name('ventas.index');
+Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');

@@ -14,7 +14,9 @@ class VentaController extends Controller
      */
     public function index()
     {
-        //
+        return view('ventas.index', [
+            'ventas' => Venta::all()
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class VentaController extends Controller
      */
     public function create()
     {
-        //
+        return view('ventas.create');
     }
 
     /**

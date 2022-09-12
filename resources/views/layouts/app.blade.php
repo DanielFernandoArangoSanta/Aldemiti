@@ -84,6 +84,12 @@
                 <li><a href="{{ route('retiros.index') }}" class="dropdown-item">Ver Retiros</a></li>
               </ul>
             </li>
+            <li class="nav-item dropdown">
+            <a id="dropdownSubMenu4" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Ventas</a>
+            <ul aria-labelledby="dropdownSubMenu4" class="dropdown-menu border-0 shadow">
+              <li><a href="{{ route('ventas.index') }}" class="dropdown-item">Ver Ventas</a></li>
+            </ul>
+            </li>
           </ul>
         </div>
 
