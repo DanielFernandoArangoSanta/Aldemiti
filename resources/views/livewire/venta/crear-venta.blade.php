@@ -4,7 +4,7 @@
             <h3 class="card-title">Formulario de Venta</h3>
         </div>
         <div class="card-body">
-            <form wire:submit.prevent='' method="post">
+            <form wire:submit.prevent='guardarProductos' method="post">
                 <div class="row">
                     <div class="col-md-6">
                         <label for="fechaVenta">Fecha de Venta</label>
@@ -77,9 +77,15 @@
                                                     @endforeach
                                                 </ul>
                                             @endif
-
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-sm bg-navy">
+                                        Guardar
+                                    </button>
                                 </div>
                             </div>
                         @endif

@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Venta;
 
 use App\Models\Producto;
+use App\Models\Venta;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 
 class CrearVenta extends Component
@@ -39,29 +41,28 @@ class CrearVenta extends Component
             ]]);
         } else {
             $this->productosavender->push([
-                'id' => $this->id,
+                'id' => $this->idproducto,
                 'nombre' => $this->nombreproducto,
                 'valorventa' => $this->valorproducto,
                 'cantidad' => $this->cantidad,
                 'valortotal' => $this->valortotal
             ]);
-        }
-        $this->productosavender->all();
-        
+        }     
     }
 
     public function guardarProductos()
     {
-        $productos = Producto::all();
-        $productosVenta = Producto::class;
-        foreach ($productos as $producto) {
-            $productoVender = $producto;
-            foreach ($this->productosavender as $productoventa) {
-                if ($productoVender->id == $this->productoventa->id) {
-                    //Metodo para almacenar los datos
-                }
-            }
+
+        $venta = new Venta();
+        $venta->fecha_venta = $this->fechaventa;
+        $venta->save();
+        foreach ($this->productosavender as $producto) {
+            $venta->productos()->attach($producto['id'], ['cantidad' => $producto['cantidad'], 'valor_total' => $producto['valortotal']]);
+            $productoVenta = Producto::find($producto['id']);
+            $productoVenta->cantidad = $productoVenta->cantidad - $producto['cantidad'];
+            $productoVenta->save();
         }
+        return Redirect::route('ventas.index');
     }
 
     public function calcularValorTotal()
