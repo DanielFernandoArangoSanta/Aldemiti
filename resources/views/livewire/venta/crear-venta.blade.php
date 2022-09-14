@@ -73,7 +73,12 @@
                                             @if (!empty($productosavender))
                                                 <ul class="list-group">
                                                     @foreach ($productosavender as $producto)
-                                                        <li class="list-group-item">{{ $producto['nombre'] }}</li>
+                                                        <li class="list-group-item">{{ $producto['nombre'] }}
+                                                          <button type="button" class="btn btn-sm bg-navy" wire:click='quitarProducto({{ $producto['id'] }})'>
+                                                            Quitar
+                                                          </button>
+                                                        </li>
+                                                        
                                                     @endforeach
                                                 </ul>
                                             @endif
@@ -88,6 +93,7 @@
                                     </button>
                                 </div>
                             </div>
+                            {{ $productosavender }}
                         @endif
                     </div>
                 </div>
