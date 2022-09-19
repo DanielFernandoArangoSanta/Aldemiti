@@ -72,13 +72,12 @@
                                         <div class="card-body">
                                             @if (!empty($productosavender))
                                                 <ul class="list-group">
-                                                    @foreach ($productosavender as $producto)
+                                                    @foreach ($productosavender as $i => $producto)
                                                         <li class="list-group-item">{{ $producto['nombre'] }}
-                                                          <button type="button" class="btn btn-sm bg-navy" wire:click='quitarProducto({{ $producto['id'] }})'>
-                                                            Quitar
+                                                          <button type="button" class="btn btn-sm bg-navy" wire:click="quitarProducto({{ $i }})">
+                                                            Quitar{{ $i }}
                                                           </button>
                                                         </li>
-                                                        
                                                     @endforeach
                                                 </ul>
                                             @endif
@@ -93,7 +92,6 @@
                                     </button>
                                 </div>
                             </div>
-                            {{ $productosavender }}
                         @endif
                     </div>
                 </div>

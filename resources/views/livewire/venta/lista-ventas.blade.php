@@ -27,11 +27,6 @@
                                         <button type="button" class="btn btn-sm bg-navy" wire:click='mostrarDetalle({{ $item->id }})'>
                                             Ver Detalle
                                         </button>
-                                        <a href="{{ route('ventas.edit', $item) }}">
-                                          <button type="button" class="btn btn-sm bg-navy">
-                                            <i class="fas fa-edit"></i>
-                                          </button>
-                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach

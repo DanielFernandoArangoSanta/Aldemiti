@@ -31,8 +31,7 @@ class CrearVenta extends Component
 
   public function añadirProducto()
   {
-
-    if (empty($this->productosavender)) {
+    if (empty($this->productosavender)) {    
       $this->productosavender = collect([[
         'id' => $this->idproducto,
         'nombre' => $this->nombreproducto,
@@ -51,15 +50,10 @@ class CrearVenta extends Component
     }
   }
 
-  public function quitarProducto($id)
-  {
+  public function quitarProducto($i)
+  { 
     $this->reset('idproducto', 'nombreproducto', 'valorproducto', 'cantidad', 'valortotal');
-    $producto = Producto::find($id);
-    $this->idproducto = $producto->id;
-    $this->nombreproducto = $producto->nombre;
-    $this->valorproducto = $producto->valor_venta;
-    $this->productosavender->pull($this->idproducto);
-    $this->emit('refresh');
+    $this->productosavender->pull($i);
   }
 
   public function guardarProductos()
@@ -89,3 +83,5 @@ class CrearVenta extends Component
     ]);
   }
 }
+
+

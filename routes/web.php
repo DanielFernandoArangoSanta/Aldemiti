@@ -57,4 +57,4 @@ Route::get('/retiros/index', [RetiroController::class, 'index'])->name('retiros.
 //Ventas
 Route::get('/ventas/index', [VentaController::class, 'index'])->name('ventas.index');
 Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
-Route::get('/ventas/{venta}/edit', [VentaController::class, 'edit'])->name('ventas.edit');
+

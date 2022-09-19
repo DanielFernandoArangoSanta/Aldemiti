@@ -59,8 +59,7 @@ class VentaController extends Controller
      */
     public function edit(Venta $venta)
     {
-        $ventaAEditar = Venta::with('productos')->findOrFail($venta->id);
-        return view('ventas.edit', compact('ventaAEditar'));
+       
     }
 
     /**
