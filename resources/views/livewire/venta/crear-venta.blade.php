@@ -19,6 +19,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Producto</th>
+                                        <th>Cantidad</th>
                                         <th>Valor de Venta</th>
                                         <th></th>
                                     </tr>
@@ -28,6 +29,7 @@
                                         <tr>
                                             <td>{{ $producto->id }}</td>
                                             <td>{{ $producto->nombre }}</td>
+                                            <td>{{ $producto->cantidad }}</td>
                                             <td>{{ $producto->valor_venta }}</td>
                                             <td>
                                                 <button type="button" class="btn bg-navy btn-sm"
@@ -52,7 +54,7 @@
                                     <label for="cantidad">Cantidad</label>
                                     <input type="number" class="form-control" wire:model='cantidad'
                                         wire:change='calcularValorTotal'>
-                                </div>
+                                </div>                                
                                 <div class="col-md-3">
                                     <label for="valortotal">Valor Total</label>
                                     <input readonly type="number" class="form-control" value="{{ $valortotal }}">

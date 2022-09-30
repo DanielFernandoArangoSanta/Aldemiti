@@ -28,12 +28,21 @@
           <form action="{{ route('inventario.store') }}" method="post">
             @csrf
             <div class="row align-items-center justify-content-start">
-              <div class="form-group col-md-8">
+              <div class="form-group col-md-6">
                 <label for="categoriaProducto">¿A que categoría pertenece el producto?</label>
                 <select class="form-control" name="categoriaProducto">
                   <option disabled selected>Seleccione una categoría</option>
                   @foreach ($categorias as $categoria)
                   <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="proveedorProducto">Proveedor</label>
+                <select class="form-control" name="proveedorProducto">
+                  <option disabled selected>Seleccione un proveedor</option>
+                  @foreach ($proveedores as $proveedor)
+                  <option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
                   @endforeach
                 </select>
               </div>
@@ -51,7 +60,7 @@
               <div class="form-group col-md-2">
                 <label for="unidadMedida">Unidad de Medida</label>
                 <select class="form-control" name="unidadMedida">
-                  <option disabled selected>Seleccione la unidad de medida</option>
+                  <option disabled selected>Seleccione...</option>
                   <option value="Unidad">Unidad</option>
                   <option value="Libra">Libra</option>
                   <option value="Kilo">Kilo</option>
@@ -88,21 +97,6 @@
                 <label for="stockInventario">Cantidad en Inventario</label>
                 <input type="number" class="form-control" min="1" name="stockInventario">
               </div>
-              <div class="form-group col-md-6">
-                <label for="proveedorProducto">Proveedor</label>
-                <select class="form-control" name="proveedorProducto">
-                <option disabled selected>Seleccione un proveedor</option>
-                @foreach ($proveedores as $proveedor)
-                  <option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
-                @endforeach
-                </select>
-                <br>
-                <a href="{{ route('proveedor.create') }}">
-                  <button type="button" class="btn btn-block btn-sm bg-navy">
-                    Crear Proveedor
-                  </button>
-                </a>
-              </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-sm-6">
@@ -118,4 +112,5 @@
   </section>
 
   @endsection
+  
 </x-app-layout>

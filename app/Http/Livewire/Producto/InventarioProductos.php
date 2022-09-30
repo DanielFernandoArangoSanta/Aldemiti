@@ -14,6 +14,7 @@ class InventarioProductos extends Component
     public $productos;
     public $formularioIngreso = false;
     public $formularioRetiro = false;
+    public $informacionProducto = false;
     public $productoSeleccionado;
     public $fechaIngreso;
     public $cantidad;
@@ -22,6 +23,16 @@ class InventarioProductos extends Component
     public $cantidadRetiro;
     public $valorretiro;
     public $observacion;
+    public $idProducto;
+    public $categoriaProducto;
+    public $nombreProducto;
+    public $codigoProducto;
+    public $medidaProducto;
+    public $valorCompra;
+    public $valorVenta;
+    public $cantidadStock;
+    public $proveedorProducto;
+
 
     public function mount($productos)
     {
@@ -46,10 +57,30 @@ class InventarioProductos extends Component
         $this->productoSeleccionado = Producto::find($id);
     }
 
+    public function mostrarProducto($id)
+    {
+        if ($this->formularioIngreso == true || $this->formularioRetiro == true) {
+            $this->formularioIngreso = false;
+            $this->formularioRetiro = false;
+        }
+        $this->informacionProducto = true;
+        $this->productoSeleccionado = Producto::find($id);
+        $this->idProducto = $id;
+        $this->categoriaProducto = $this->productoSeleccionado->categoria->nombre;
+        $this->nombreProducto = $this->productoSeleccionado->nombre;
+        $this->codigoProducto = $this->productoSeleccionado->codigo;
+        $this->valorCompra = $this->productoSeleccionado->valor_compra;
+        $this->valorVenta = $this->productoSeleccionado->valor_venta;
+        $this->cantidadStock = $this->productoSeleccionado->cantidad;
+        $this->medidaProducto = $this->productoSeleccionado->unidad_medida;
+        $this->proveedorProducto = $this->productoSeleccionado->proveedor->nombre;
+    }
+
     public function cerrarFormulario()
     {
         $this->formularioIngreso = false;
         $this->formularioRetiro = false;
+        $this->informacionProducto = false;
     }
 
     public function calcularValorTotal()

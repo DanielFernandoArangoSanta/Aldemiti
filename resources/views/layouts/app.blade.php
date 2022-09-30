@@ -41,8 +41,8 @@
   @livewireStyles
 </head>
 
-<body class="hold-transition layout-top-nav">
-  <div class="wrapper">
+<body class="hold-transition layout-top-nav" >
+  <div class="wrapper">.
 
     <nav class="main-header navbar navbar-expand-md navbar-dark navbar-navy">
       <div class="container">
@@ -55,12 +55,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <div class="collapse navbar-collapse order-3" id="navbarCollapse"  >
           <!-- Left navbar links -->
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="index3.html" class="nav-link">Inicio</a>
-            </li>
+
             <li class="nav-item dropdown">
               <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Inventario</a>
               <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
@@ -69,7 +67,7 @@
                 <li><a href="{{ route('inventario.create') }}" class="dropdown-item">Añadir Productos</a></li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" >
               <a id="dropdownSubMenu2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Proveedores</a>
               <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
                 <li><a href="{{ route('proveedor.index') }}" class="dropdown-item">Ver Proveedores</a></li>
@@ -85,10 +83,10 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-            <a id="dropdownSubMenu4" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Ventas</a>
-            <ul aria-labelledby="dropdownSubMenu4" class="dropdown-menu border-0 shadow">
-              <li><a href="{{ route('ventas.index') }}" class="dropdown-item">Ver Ventas</a></li>
-            </ul>
+              <a id="dropdownSubMenu4" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Ventas</a>
+              <ul aria-labelledby="dropdownSubMenu4" class="dropdown-menu border-0 shadow">
+                <li><a href="{{ route('ventas.index') }}" class="dropdown-item">Ver Ventas</a></li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -112,10 +110,10 @@
       </div>
     </nav>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-image:url({{ asset('assets/img/madera.jpg') }});color:brown;font-size:1em; background-repeat:no-repeat;background-size:cover">
 
       @yield('contenido')
-      
+
     </div>
 
   </div>
